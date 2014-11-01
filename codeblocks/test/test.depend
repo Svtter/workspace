@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1411198602 source:/home/svitter/workspace/codeblocks/test/main.cpp
+	<iostream>
+	<stdio.h>
+	<string.h>
+	<vector>
+	<map>
+	<algorithm>
+	<queue>
+	<cmath>
+

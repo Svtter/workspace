@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1411200611 source:/home/svitter/workspace/codeblocks/dd/main.cpp
+	<iostream>
+	<cstdio>
+	<string.h>
+	<cmath>
+	<time.h>
+

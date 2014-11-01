@@ -1,0 +1,4 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Sun Sep 28 08:18:02 CST 2014
+http\://download.codetrails.com/models/freq/v2/.error=Could not transfer artifact unknown\:unknown\:zip\:ctor-freq\:0.0.0-SNAPSHOT from/to models (http\://download.codetrails.com/models/freq/v2)\: download.codetrails.com\: \u6CA1\u6709\u4E0E\u4E3B\u673A\u540D\u5173\u8054\u7684\u5730\u5740
+@default-models-http\://download.codetrails.com/models/freq/v2/.lastUpdated=1411863482257

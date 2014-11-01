@@ -1,0 +1,95 @@
+package Communication;
+
+import java.io.Serializable;
+
+import game.Command;
+
+public class SendInfor  implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public Command command;
+	public int uid;
+	public String name;
+	public String objName;
+	public int objId;
+	public int objVal;
+	public int objPos;
+	public String information;
+
+	/**
+	 *  空初始化
+	 */
+	public SendInfor() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 *  包含信息, 发送者id的初始化
+	 * @param command
+	 * @param name
+	 * @param userid
+	 * @param information
+	 */
+	public SendInfor(Command command, String name, int userid, String information){
+		this.command = command;
+		this.name = name;
+		this.uid = userid;
+		this.information = information;
+	}
+
+	/**
+	 *  包含对象名， 发送者id的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 */
+	public SendInfor(Command command, String objName, int userid) {
+		this.command = command;
+		this.objName = objName;
+	}
+
+	/**
+	 *  包含对象名，发送者id，被作用者id的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 * @param objid
+	 */
+	public SendInfor(Command command, String objName, int userid, int objid) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+	}
+
+	// 包含对象名， 发送者id, 信息，被作用者对象id的初始化
+	public SendInfor(Command command, String objName, int userid,
+			String information, int objid) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+		this.information = information;
+	}
+
+	// 包含对象名，对象id，发送者id，信息，以及单位值的初始化
+	public SendInfor(Command command, String objName, int userid,
+			String information, int objid, int objvalue) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+		this.information = information;
+		this.objVal = objvalue;
+	}
+
+	// 包含位置的初始化
+	public SendInfor(Command command, String objName, int userid,
+			String information, int objid, int objvalue, int objPos) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+		this.information = information;
+		this.objVal = objvalue;
+		this.objPos = objPos;
+	}
+}

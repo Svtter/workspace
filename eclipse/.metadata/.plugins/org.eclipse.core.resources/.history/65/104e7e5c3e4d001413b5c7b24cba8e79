@@ -1,0 +1,141 @@
+package game;
+
+import ui.*;
+
+// 包含全部主机游戏信息
+public class Host {
+	// host
+	static int MAX_PLAYER = 4;
+	private Player userGroup[];
+	private int handleUser; //当前的操作玩家的编号
+
+	public int joined_userNum; //当前玩家的人数
+	public int whole_userNum;  //玩家的总人数
+
+	// 牌的相关
+	private int bnum;
+	private int wnum;
+	private int blackGroup[];
+	private int whiteGroup[];
+
+	// host first, then winner first
+	//
+	public Host(int whole_userNum) {
+		this.whole_userNum = whole_userNum;
+		handleUser = 0;
+		joined_userNum = 0;
+
+		userGroup = new Player[4];
+		reset();
+//		Menu.cout("DEBUG: finish buildhost");
+	}
+
+	// restart the game
+	/**
+	 * 重新开始游戏，重置所有数据
+	 */
+	public void reset() {
+		bnum = wnum = 11;
+		blackGroup = new int[12];
+		whiteGroup = new int[12];
+		for (int i = 0; i < 12; i++)
+			blackGroup[i] = whiteGroup[i] = i;
+
+		for (int i = 0; i < handleUser; i++)
+			userGroup[i].lose = false;
+		
+		startGame();
+	}
+	
+	/**
+	 * 人数到齐后，开始游戏
+	 */
+	public void startGame() {
+
+
+	}
+
+	public BoardGroup getUserBoard(int uid) {
+		// task
+		return userGroup[uid].boardGroup;
+	}
+
+	// 获取当前玩家数量
+
+	// show everyone's board;
+	public void showAll() {
+		for (int i = 0; i < whole_userNum; i++) {
+			for (int j = 0; j < userGroup[i].boardGroup.boardNum; j++) {
+				System.out.println("User: " + userGroup[i].name);
+				userGroup[i].boardGroup.hideShow();
+				System.out.println("");
+			}
+		}
+	}
+
+	// cycle Play
+	public void nextUser() {
+		this.handleUser++;
+		if (handleUser >= whole_userNum)
+			handleUser %= whole_userNum;
+	}
+
+	// 加入新的玩家
+	public int joined_userNum() {
+		return joined_userNum;
+	}
+	
+	// 加入新的玩家，并且返回新玩家的玩家编号
+	public int new_joinUser() {
+		return joined_userNum++;
+	}
+
+	// 下一个是谁
+	public String whosNext() {
+		return userGroup[(handleUser + 1) % whole_userNum].name;
+	}
+
+	// 现在是谁的Turn
+	public String whosNow() {
+		return userGroup[handleUser].name;
+	}
+
+	// 决定谁先进行游戏
+	public int whosFirst() {
+		return FrontInfor.whosFirst();
+	}
+
+	// 获取新的牌
+	public int getNewBoard(int color) {
+		// 确定牌的颜色
+		
+		// get black board
+		if (color == 0) {
+			int temp = (int) ((Math.random()) * 12);
+			int tmp;
+			tmp = blackGroup[bnum];
+			blackGroup[bnum] = blackGroup[temp];
+			blackGroup[temp] = tmp;
+			bnum--;
+			return whiteGroup[bnum + 1];
+		}
+
+		// get white board
+		else {
+			int temp = (int) ((Math.random()) * 12);
+			int tmp;
+			tmp = whiteGroup[wnum];
+			whiteGroup[wnum] = whiteGroup[temp];
+			whiteGroup[temp] = tmp;
+			wnum--;
+			return whiteGroup[wnum + 1];
+		}
+	}
+	
+	/** 判定当前牌是否猜测数字，并且返回猜中或者猜错*/
+	public boolean judgeBoard(int no, int uid, int num) {
+		if (userGroup[uid].getBoardNum(num) == num)
+			return true;
+		return false;
+	}
+}

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1413815654 source:/home/svitter/workspace/codeblocks/sum_para/main.cpp
+	"omp.h"
+	<time.h>
+	<stdio.h>
+

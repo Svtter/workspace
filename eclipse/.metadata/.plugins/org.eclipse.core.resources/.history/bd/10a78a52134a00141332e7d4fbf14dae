@@ -1,0 +1,114 @@
+package Communication;
+
+import game.Command;
+import game.Player;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+
+import ui.Menu;
+
+public class Client {
+	static int PORT=8888;
+	Socket s = null;
+	ObjectOutputStream dos = null;
+	ObjectInputStream dis = null;
+	String ip;
+	recvThread r = new recvThread(); // 线程类
+	boolean bConnected = false;
+	public Player user;
+	private SendInfor umd;
+
+	public Client() {
+		// 可以考虑从本机多个游戏
+		user = new Player(Menu.playerName());
+		ip = Menu.joinIP();
+		connect(ip);
+		new Thread(r).start();
+	}
+
+	// 建立链接
+	public void connect(String ip) {
+		try {
+			Menu.cout("DEBUG: join ip is:"+ip);
+			s = new Socket(ip, PORT); // 建立客户端对象
+			dos = new ObjectOutputStream(s.getOutputStream());
+			dis = new ObjectInputStream(s.getInputStream());
+			bConnected = true;
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+			Menu.debug("Unknow Host");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void disconnect() { //关闭时关闭客户端，输入，输出
+		try {
+			// 退出时发送讯号
+			umd.command = Command.EXIT;
+			send(umd);
+			dos.close();
+			dis.close();
+			s.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try { // dos.writeObject(str);
+			dos.flush();
+			// dos.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	void send(SendInfor str) {
+		try {
+			dos.writeObject(str);
+		} catch (SocketException e) {
+			System.out.println(umd.name + "退出了...");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	class recvThread implements Runnable { // 客户端线程接收数据
+		SendInfor umd;
+		public void run() {
+			umd = new SendInfor();
+			try {
+				while (bConnected) {
+					umd= (SendInfor) dis.readObject(); // 拿到数据
+					handle(umd);
+				}
+			} catch (SocketException e) {
+				System.out.println(user.name + "退出了...");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+				Menu.cout("无法获取数据");
+			} catch (ClassNotFoundException e2) {
+				e2.printStackTrace();
+				Menu.cout("找不到类");
+			}
+		}
+
+		// 处理信息
+		public void handle(SendInfor umd) {
+			// init
+			switch(umd.command)
+			{
+			case INIT:
+				user.uid = umd.uid;
+				send(new SendInfor(Command.INIT, user.name, user.uid, null));
+                Menu.debug("connect success");
+                default:
+                	break;
+			}
+		}
+	}
+}

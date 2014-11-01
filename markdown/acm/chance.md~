@@ -1,0 +1,33 @@
+概率的重新学习
+===
+
+    就知道最关键部分的答案一定是略，呵呵
+
+指数分布
+---
+
+指数分布密度函数：
+
+$$F(x)=
+\begin{cases}
+\lambda x^{-\lambda x} ,&  x\ge0 \\
+0 , & x\lt0
+\end{cases}$$ 
+
+根据分布函数的“无后效性”，即若$X\sim E(\lambda)$则对任意的$s,t\gt 0$,
+$$P(X>s+t | X>s) = P(X>t).$$
+
+指数分布的分布函数：
+$$F(x)=
+\begin{cases}
+0, & x < a, \\
+\\
+\frac{x-a}{b-a}, & a \le x < b, \\
+\\
+\\
+\\
+1, & x\ge b,
+\end{cases}$$
+
+指数函数的期望：
+    $$EX = \frac1\lambda, DX = \frac1{\lambda^2}$$

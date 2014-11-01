@@ -1,0 +1,175 @@
+package Communication;
+
+import java.io.Serializable;
+
+import game.Command;
+
+/**
+ * 用于通讯的类
+ * 实现Serializable类来实现object类的传递
+ * @author svitter
+ *
+ */
+public class SendInfor  implements Serializable {
+	/**
+	 * serializable所需要的UID
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	/**	 通讯命令*/
+	public Command command;
+
+	/** 命令发出者*/
+	public int uid;
+	
+	/** 命令发出者*/
+	public String name;
+	
+	/** 命令承担者*/
+	public String objName;
+	
+	/** 命令承担者id*/
+	public int objId;
+	
+	/** 猜测牌所在的位置*/
+	public int num;
+	
+	/** 猜测牌的值*/
+	public int val;
+	
+	/** 需要保存的信息*/
+	public String information;
+
+	/**
+	 *  空初始化
+	 */
+	public SendInfor() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 *  包含信息, 发送者id的初始化
+	 * @param command
+	 * @param name
+	 * @param userid
+	 * @param information
+	 */
+	public SendInfor(Command command, String name, int userid, String information){
+		this.command = command;
+		this.name = name;
+		this.uid = userid;
+		this.information = information;
+	}
+
+	/**
+	 *  包含对象名， 发送者id的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 */
+	public SendInfor(Command command, String objName, int userid) {
+		this.command = command;
+		this.objName = objName;
+	}
+
+	/**
+	 *  包含对象名，发送者id，被作用者id的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 * @param objid
+	 */
+	public SendInfor(Command command, String objName, int userid, int objid) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+	}
+
+	/**
+	 *  包含对象名， 发送者id, 信息，被作用者对象id的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 * @param information
+	 * @param objid
+	 */
+	public SendInfor(Command command, String objName, int userid,
+			String information, int objid) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+		this.information = information;
+	}
+
+	/**
+	 *  包含对象名，对象id，发送者id，信息，以及单位值的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 * @param information
+	 * @param objid
+	 * @param numue
+	 */
+	public SendInfor(Command command, String objName, int userid,
+			String information, int objid, int numue) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+		this.information = information;
+		this.num = numue;
+	}
+
+	/**
+	 *  包含位置的初始化
+	 * @param command
+	 * @param objName
+	 * @param userid
+	 * @param information
+	 * @param objid
+	 * @param numue
+	 * @param val
+	 */
+	public SendInfor(Command command, String objName, int userid,
+			String information, int objid, int num, int val) {
+		this.command = command;
+		this.objName = objName;
+		this.objId = objid;
+		this.information = information;
+		this.num = num;
+		this.val = val;
+	}
+	
+	/**
+	 * 生成攻击命令
+	 * @param 被猜测者id
+	 * @param 猜测的排
+	 * @param 猜测的数值 
+	 * @return	猜测命令
+	 */
+	public SendInfor attack(int objId, int num ,int val) {
+		this.command = Command.ATTACK;
+		this.objId = objId;
+		this.num = num;
+		this.val = val;
+		return this;
+	}
+	
+	/**
+	 * 生成显示所有牌命令
+	 * @return
+	 */
+	public SendInfor show() {
+		this.command = Command.SHOW;
+		return this;
+	}
+	
+	/**
+	 * 开始游戏后，发送所需牌的信息到客户端
+	 * @return
+	 */
+	public SendInfor start() {
+		this.command = Command.START;
+
+		return this;
+	}
+}

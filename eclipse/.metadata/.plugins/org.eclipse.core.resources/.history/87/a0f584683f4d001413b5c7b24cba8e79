@@ -1,0 +1,78 @@
+package game;
+
+import Communication.SendInfor;
+import ui.*;
+
+/**
+ * 需要使用Client作为媒介
+ * 玩家类
+ * @author svitter
+ *
+ */
+public class Player{
+    public int uid;
+    public String name;
+    public boolean lose;
+    public BoardGroup boardGroup;
+    public SendInfor si;
+
+    /** 可以从文件中读取*/
+    public Player(String name) {
+        this.name = name;   
+        lose = false;
+    }
+    
+    public void hideShow () {
+    	if(boardGroup.showAll)
+    		lose = true;
+    	boardGroup.hideShow();
+    }
+    
+    public void showOwn() {
+    	boardGroup.showOwn();
+    }
+    
+    public boolean attack(Host host, int no, int uid, int num) {
+    	if(host.judgeBoard(no, uid, num)) {
+    		return true;
+    		// show
+    	}
+    	return false;
+    }
+    
+    public void MyTurn(Host host) {
+    	boolean get = true;
+    	while(get) {
+    		// 信息出存在sendinfor中
+    		si = FrontInfor.chooseCommand(Command.TURN);
+			switch (si.command) {
+			case ATTACK:
+				si = FrontInfor.attack();
+				get = attack(host, si.objPos, si.objId, si.objVal);
+				if (get) {
+					FrontInfor.attackSuccess(si);
+				} else {
+					FrontInfor.attackFailure(si);
+					get = false;
+				}
+				break;
+			case HELP:
+				Menu.helpMenu();
+				break;
+			case PASS:
+				FrontInfor.pass();
+				get = false;
+				break;
+			default:
+				Menu.error("choose PASS|HELP|ATTACK");
+				break;
+			}
+    	}
+		FrontInfor.exitTurn(si);
+    }
+
+    // use to confirm the request return or not
+    public boolean command() {
+        return true;
+    }
+}

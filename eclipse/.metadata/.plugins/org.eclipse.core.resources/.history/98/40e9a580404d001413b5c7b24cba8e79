@@ -1,0 +1,128 @@
+package ui;
+
+import java.io.*;
+import java.net.*;
+import java.awt.*;
+import java.util.*;
+
+import Communication.SendInfor;
+
+public class Menu {
+	public static Scanner in = new Scanner(System.in);
+	public static SendInfor si = new SendInfor();
+
+	public Menu() {
+		// showhole
+	}
+
+	public static String playerName() { //启动游戏
+		System.out.println("input your name: ");
+		String temp;
+		in = new Scanner(System.in);
+		temp = in.next();
+		return temp;
+	}
+
+	public static int chooseItem() {	//选择你想要的
+		System.out.print("input what you want: ");
+		int temp = in.nextInt();
+		return temp;
+	}
+
+	public static void buildHost(int PORT, int userNum) {
+		System.out.println("Building Host....");
+		System.out.println("Player num is: " + userNum);
+		System.out.println("Running in PORT: " + PORT);
+		Menu.waitJoin();
+	}
+
+	public static void waitJoin() {
+		System.out.println("Waiting someone join...");
+	}
+
+	public static void whoConnected(String name) {
+		System.out.println(name + " is connected.");
+	}
+
+	/**
+	 * 人数是否满，是否可以开始游戏
+	 * @return 是否可以开始游戏
+	 */
+	public static boolean enableStart() { 
+		System.out.println("Ok to start: ");
+		System.out.println("Input [start] to Start: ");
+		String temp;
+		temp = in.next();
+		if(temp.equals("start")) {
+			return true;
+		}
+		else return false;
+	}
+
+	public static void joinHost(String name) {
+		System.out.println(name + " joined your game.");
+	}
+
+	/** 
+	 * 输入玩家人数
+	 * @return 玩家人数
+	 */
+	public static int playNum() { 
+		System.out.print("Please input the player num: ");
+		int temp;
+		temp = in.nextInt();
+		return temp;
+	}
+
+	/**
+	 * 输入加入的ip
+	 * @return 输入的ip
+	 */
+	public static String joinIP() {
+		cout ("Input the ip you wanna join: ");
+		String temp = in.next();
+		System.out.println();
+		return temp;
+	}
+
+	public static void helpMenu() {
+		// open with html
+		// 启用系统默认浏览器来打开网址。
+		try {
+			URI uri = new URI("http://blog.csdn.net/svitter");
+			Desktop.getDesktop().browse(uri);
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void error(String str) {
+		System.out.println("Error occured at" + str);
+	}
+	
+	public static void cout(String str) {
+		System.out.println(str);
+	}
+	
+	public static void debug(String str) {
+		System.out.println("DEBUG: " + str);
+	}
+	
+	public static int iin() {
+		return in.nextInt();
+	}
+
+	public static int start() {
+		
+		// TODO Auto-generated method stub
+		cout("Welcome to DaVinci Code ~!");
+		cout("----show menu----\n" + "1. buildHost;\n"
+				+ "2. joinHost;\n" + "3. help;\n" + "4. exit;\n");
+		return chooseItem();
+	}
+	public static void exit() {
+		cout("exiting...");
+	}
+}
