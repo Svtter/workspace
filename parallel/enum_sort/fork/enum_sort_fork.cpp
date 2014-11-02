@@ -131,7 +131,7 @@ int main()
     cost1 = serial_enum_sort(a, at);
     printf("serial cost is:\n%lf\n", cost1);
     // debug(at, 100);
-    puts("have child.");
+    // puts("have child.");
 
     //parallel
     cost2 = parallel_enum_sort(b, bt);
