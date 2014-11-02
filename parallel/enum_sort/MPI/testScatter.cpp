@@ -1,16 +1,3 @@
-/*=============================================================================
-#
-# Author: svtter - svtter@qq.com
-#
-# QQ : 57180160
-#
-# Last modified: 2014-11-02 17:08
-#
-# Filename: enum_sort_MPI.cpp
-#
-# Description: 
-#
-=============================================================================*/
 #include "mpich-x86_64/mpi.h"
 #include <stdio.h>
 #include <math.h>
@@ -81,17 +68,32 @@ int main(int argc, char **argv)
         cout << "serial cost time is: " << c1 << endl;
     }
 
-    // P0 send b to ALL
-    MPI_Bcast(b, MAXN+10, MPI_INT, 0, MPI_COMM_WORLD);
-
-    // Gather
+    int c[MAXN+10];
     if(myid == 0)
     {
-        
+        for(int i = 0; i < MAXN; i++)
+        {
+            b[i] = i+1;
+        }
     }
-
+    MPI_Scatter(b, MAXN+1, MPI_INT, c, MAXN+1, MPI_INT, 0, MPI_COMM_WORLD);
     if(myid == 0)
-        cout << "加速比为： " << c1 / c2 << endl;;
+    {
+        fprintf(stderr, "Processor %d of %d: b[1]: %d\n", myid, numprocs, b[1]);
+        fprintf(stderr, "Processor %d of %d: c[0]: %d\n", myid, numprocs, c[0]);
+    }
+    if(myid == 1)
+    {
+        fprintf(stderr, "Processor %d of %d: c[1]: %d\n", myid, numprocs, c[1]);
+    }
+    // if(myid == 0)
+    // {
+        // MPI_Bcast(b, MAXN+1, MPI_INT, myid, MPI_COMM_WORLD);
+        
+    // }
+
+    // if(myid == 0)
+        // cout << "加速比为： " << c1 / c2 << endl;;
 
     MPI_Finalize();
     return 0;
