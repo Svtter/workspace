@@ -1,3 +1,16 @@
+/*=============================================================================
+#
+# Author: svtter - svtter@qq.com
+#
+# QQ : 57180160
+#
+# Last modified: 2014-11-02 13:38
+#
+# Filename: enum_sort.java
+#
+# Description: 
+#
+=============================================================================*/
 import java.lang.Math.*;
 
 public class enum_sort extends Thread {
