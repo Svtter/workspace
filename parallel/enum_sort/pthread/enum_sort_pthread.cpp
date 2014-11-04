@@ -66,6 +66,15 @@ double serial_enum_sort(int a[], int at[])
     return timeuse(t1, t2);
 }
 
+void debug(int a[], int len)
+{
+    for(int i = 1; i <= len; i++)
+    {
+        printf("%5d", a[i]);
+    }
+    printf("\n");
+}
+
 
 
 int a[MAXN+10], b[MAXN+10]; 
@@ -98,7 +107,7 @@ int main()
 
     //serial
     cost1 = serial_enum_sort(a, at);
-    printf("serial cost is:\n%lf\n", cost1);
+    printf("serial cost is: %lf\n", cost1);
     // debug(at, 100);
     // puts("have child.");
 
@@ -116,7 +125,7 @@ int main()
     for(int i = 1; i <= NUM_THREADS; i++)
     {
         pthread_join(pt[i], NULL);
-        n++;
+        // n++;
     }
     // pthread_t p,q;
     // pthread_create(&p, NULL,  parallel_enum_sort, NULL);
@@ -129,6 +138,7 @@ int main()
     gettimeofday(&t2, NULL);
     cost2 = timeuse(t1, t2);
     cout << "parallel time is: " << cost2 << endl;
+    // debug(bt, 100);
 
     cout << "加速比为：" << cost1 /cost2;
 
