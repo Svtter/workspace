@@ -148,7 +148,7 @@ int main(int argc, char *argv[])
         end = MPI_Wtime();
         c2 = end - start;
         fprintf(stderr, "parallel cost time is: %lf\n", c2);
-        fprintf(stderr, "加速比为： %lf", c1 / c2);
+        fprintf(stderr, "加速比为： %lf\n", c1 / c2);
     }
 
     // for(i = 0; i < numprocs; i++)

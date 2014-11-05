@@ -14,5 +14,4 @@ PS:
  
 加速比:
 ---
-- ![enum_sort_openmp.png](enum_sort_openmp.png)
 - 大约2.7, 数据大小为20000

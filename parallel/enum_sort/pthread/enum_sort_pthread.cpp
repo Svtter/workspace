@@ -140,7 +140,7 @@ int main()
     cout << "parallel time is: " << cost2 << endl;
     // debug(bt, 100);
 
-    cout << "加速比为：" << cost1 /cost2;
+    cout << "加速比为：" << cost1 /cost2 << endl;
 
     return 0;
 }
