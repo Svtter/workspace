@@ -7,7 +7,6 @@
 ---
 
 - [文件目录](#文件目录)
-- [相关函数目录](#相关函数目录)
 
 文件目录
 ---
@@ -24,14 +23,11 @@
 | js/           |   -       |
 |   - nothing.js|   -       |
 | class/		|	类文件  |
-|	- logistic.php|	物流信息类|
-| user/			|	用户相关|
-|	- login.php	|	登录判断|
-|	- register.php|	注册    |
-| db/           |   操作系统相关操作|
-|   - nothing   |                   |
-
-相关函数作用
----
-
+|	- control.php|	物流控制类|
+|	- project.php|	物流信息类|
+|	- picture.php|	图片类|
+|	- adjunct.php|	附件类|
+| - show.php| 返回发布信息|
+| db/           |   数据库相关操作|
+|   - db.php   |                   |
 
