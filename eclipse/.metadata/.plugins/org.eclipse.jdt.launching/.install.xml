@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-<entry loc="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.51-2.4.5.5.el7.x86_64" stamp="1414881274000"/>
 <entry loc="/usr/lib/jvm/java-7-openjdk-amd64" stamp="1412224573000"/>
+<entry loc="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.51-2.4.5.5.el7.x86_64" stamp="1414881274000"/>
+<entry loc="/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.71-2.5.3.1.el7_0.x86_64" stamp="1414897421000"/>
 </dirs>

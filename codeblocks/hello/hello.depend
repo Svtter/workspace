@@ -1,0 +1,4 @@
+# depslib dependency file v1.0
+1416128786 source:/home/svitter/workspace/codeblocks/hello/main.cpp
+	<iostream>
+
