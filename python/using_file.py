@@ -9,7 +9,7 @@ if you wanna make your work also fun:
     use Python!
 '''
 
-f = file('poem.txt.', 'w')  # open for 'writing'
+f = file('poem.txt', 'w')  # open for 'writing'
 f.write(poem)  # write text to the file
 f.close()  # close the file
 
