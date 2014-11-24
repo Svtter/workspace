@@ -1,9 +1,10 @@
-#include <gl/glut.h>
+#include <GL/glut.h>
 
 static GLsizei iMode=1;
 static GLfloat xRot=0.0f;
 static GLfloat yRot=0.0f;
 GLUquadricObj*obj;
+
 void Initial(void)
 {
     glClearColor(1.0f,1.0f,1.0f,1.0f);  //…Ë÷√±≥æ∞—’…´

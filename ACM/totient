@@ -1,0 +1,32 @@
+#include <iostream>  
+#include <stdio.h>  
+#include <math.h>  
+using namespace std;  
+  
+int euler(int x)//Euler 模板  
+{  
+    int i, res = x;  
+    for(i = 2; i < (int) sqrt(x * 1.0)+1; i++)  
+        if(x % i == 0)  
+        {  
+            res = res / i * (i - 1);  
+            while(x % i == 0) x /= i; // 保证i一定是素数  
+        }  
+    if(x > 1)  
+        res = res / x * (x - 1);  
+    return res;  
+}  
+int main()  
+{  
+    int x;  
+    int Case;  
+    cin >> Case;  
+    while(Case--)  
+    {  
+        while(cin >> x)  
+        {  
+            cout <<euler(x) << endl;  
+        }  
+    }  
+    return 0;  
+} 

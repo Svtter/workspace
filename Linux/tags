@@ -1,0 +1,43 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+FALSE	存储管理.c	22;"	d	file:
+INVALID	存储管理.c	23;"	d	file:
+Initialize	存储管理.c	/^int Initialize(int total_pf)$/;"	f
+TRUE	存储管理.c	21;"	d	file:
+a	存储管理.c	/^int diseffect, a[total_instruction]; \/*a[] instruction queue*\/$/;"	v
+alarming	软中断通信.c	/^void alarming()$/;"	f
+busypf_head	存储管理.c	/^pfc_type ptc_struct[total_vp], *freepf_head, *busypf_head, *busypf_tail;$/;"	v
+busypf_tail	存储管理.c	/^pfc_type ptc_struct[total_vp], *freepf_head, *busypf_head, *busypf_tail;$/;"	v
+child	管道.c	/^char child[] = "a message from child";$/;"	v
+clear_period	存储管理.c	28;"	d	file:
+counter	存储管理.c	/^    int counter;        \/\/counter$/;"	m	struct:__anon1	file:
+diseffect	存储管理.c	/^int diseffect, a[total_instruction]; \/*a[] instruction queue*\/$/;"	v
+freepf_head	存储管理.c	/^pfc_type ptc_struct[total_vp], *freepf_head, *busypf_head, *busypf_tail;$/;"	v
+main	存储管理.c	/^int main()$/;"	f
+main	管道.c	/^int main ()$/;"	f
+main	软中断通信.c	/^int main()$/;"	f
+main	进程创建.c	/^void main()$/;"	f
+main	进程控制.c	/^main()$/;"	f
+next	存储管理.c	/^    struct pfc_struct *next;$/;"	m	struct:pfc_struct	typeref:struct:pfc_struct::pfc_struct	file:
+offset	存储管理.c	/^int page[total_instruction], offset[total_instruction]; \/\/address information$/;"	v
+page	存储管理.c	/^int page[total_instruction], offset[total_instruction]; \/\/address information$/;"	v
+parent	管道.c	/^char parent[] = "a message from parent";$/;"	v
+pfc_struct	存储管理.c	/^typedef struct pfc_struct $/;"	s	file:
+pfc_type	存储管理.c	/^typedef struct pfc_struct pfc_type;$/;"	t	typeref:struct:pfc_struct	file:
+pfc_type	存储管理.c	/^}pfc_type;$/;"	t	typeref:struct:pfc_struct	file:
+pfn	存储管理.c	/^    int pfn;            \/\/physical frame number$/;"	m	struct:__anon1	file:
+pfn	存储管理.c	/^    int pfn;            \/\/physical frame number$/;"	m	struct:pfc_struct	file:
+pl_type	存储管理.c	/^}pl_type;$/;"	t	typeref:struct:__anon1	file:
+pn	存储管理.c	/^    int pn;             \/\/page number$/;"	m	struct:__anon1	file:
+pn	存储管理.c	/^    int pn;             \/\/page number$/;"	m	struct:pfc_struct	file:
+ptc_struct	存储管理.c	/^pfc_type ptc_struct[total_vp], *freepf_head, *busypf_head, *busypf_tail;$/;"	v
+stop	软中断通信.c	/^void stop()$/;"	f
+time	存储管理.c	/^    int time;           \/\/running time$/;"	m	struct:__anon1	file:
+total_instruction	存储管理.c	26;"	d	file:
+total_vp	存储管理.c	27;"	d	file:
+wait_mark	软中断通信.c	/^int wait_mark;$/;"	v
+waiting	软中断通信.c	/^void waiting()$/;"	f

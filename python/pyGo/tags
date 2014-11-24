@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+cj	h4.py	/^cj = cookielib.CookieJar()$/;"	v
+conn	h4.py	/^conn = urllib2.urlopen(req)$/;"	v
+cookielib	h4.py	/^import cookielib$/;"	i
+data	h3.py	/^data = {$/;"	v
+data	hack2.py	/^    data = {$/;"	v
+down	hack2.py	/^down = raw_input('输入下界: ')$/;"	v
+httpClient	hack.py	/^    httpClient = httplib.HTTPConnection('localhost', 80, timeout=30)$/;"	v
+httpClient	hack.py	/^httpClient = None$/;"	v
+httplib	hack.py	/^import httplib$/;"	i
+loginuser	hack2.py	/^    loginuser = i$/;"	v
+opener	h4.py	/^opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))$/;"	v
+os	h3.py	/^import os$/;"	i
+p	h3.py	/^p = file('temp.htm', 'w')$/;"	v
+passwd	hack2.py	/^    passwd = i$/;"	v
+path	h4.py	/^path = 'https:\/\/202.194.168.87\/php\/user_login.php'$/;"	v
+post_data	h4.py	/^post_data = urllib.urlencode({$/;"	v
+req	h4.py	/^req = urllib2.Request(path, post_data)$/;"	v
+requests	h3.py	/^import requests$/;"	i
+requests	hack2.py	/^import requests$/;"	i
+response	hack.py	/^    response = httpClient.getresponse()$/;"	v
+result	h3.py	/^result = s.post('http:\/\/localhost\/html\/test.php', data=data)$/;"	v
+result	hack2.py	/^    result = s.post('http:\/\/localhost\/html\/test.php', data=data)$/;"	v
+s	h3.py	/^s = requests.session()$/;"	v
+s	hack2.py	/^    s = requests.session()$/;"	v
+up	hack2.py	/^up = raw_input('输入上界: ')$/;"	v
+urllib	h4.py	/^import urllib$/;"	i
+urllib2	h4.py	/^import urllib2$/;"	i
