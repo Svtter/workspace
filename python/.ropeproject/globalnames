@@ -1,7 +1,13 @@
-€}q(Ubackup_ver4]q(UcommentqUtargetqUzip_commandqU
-target_dirqUsourceqUnowqUtodayq	eU
-using_file]q
-(UpoemqUlineqUfeUpickling]q(UshoplistfileqU
-storedlistqUshoplistqUfeUcat]q(UoptionqUreadfileqUfilenameqeUfunc_doc]qUprintMaxqaUbackup-ver2]q(UtargetqUzip_commandqU
-target_dirqUsourceqUnowqUtodayqeUtest]q(UmyaddrqUmynameq eU
-class_init]q!(UPersonq"UpeUbackup_ver3]q#(Ucommentq$hhhhhheUmethod]q%(h"UpeUraising]q&(UxUsUShortInputExceptionq'eu.
+€}q(U
+try_except]qUsaUh3]q(UpUsUresultqUresqUdataqeUh4]q(UcjqhUreqq	UpUopenerq
+U	post_dataqUconnqUpathqeUhack]q(UeUresponseqU
+httpClientqeUserver]q(UaddrqUfUiUconnectionSocketqUfilenameqUserverSocketqU
+outputdataqUmessageqeU
+using_file]q(UpoemqUlineqUfeU	class_get]qUAnimalqaU
+tcp_client]q(UsheUtest]q(UmyaddrqUmynameq eU
+class_init]q!(UPersonq"UpeUbackup_ver3]q#(Ucommentq$Utargetq%Uzip_commandq&U
+target_dirq'Usourceq(Unowq)Utodayq*eUmethod]q+(h"UpeUpickling]q,(Ushoplistfileq-U
+storedlistq.Ushoplistq/UfeUTkinter]q0UApplicationq1aUvisitWeb]q2Utestq3aU
+tcp_server]q4(Usockq5Utcplinkq6UsUtheUdb]q7Udbq8aUhack2]q9(UiUupq:Udownq;Upasswdq<UshU	loginuserq=heUbackup-ver2]q>(h%h&h'h(h)h*eUraising]q?(UxUsUShortInputExceptionq@eUbackup_ver4]qA(h$h%h&h'h(h)h*eUconfig]qBUconfigqCaUcat]qD(UoptionqEUreadfileqFheUitem]qG(UaUitemqHeUclient]qI(U
+serverHostqJhU
+serverPortqKhhUclientSocketqLeUbackup]qM(h%h&h'h(eUfunc_doc]qNUprintMaxqOau.

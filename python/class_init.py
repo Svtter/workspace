@@ -3,11 +3,11 @@
 
 
 class Person:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self):
+        self.name = 'svtter'
 
     def sayHi(self):
         print 'Hello, my name is:', self.name
 
-p = Person('svtter')
+p = Person()
 p.sayHi()
