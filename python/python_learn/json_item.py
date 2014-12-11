@@ -2,37 +2,35 @@
 # coding: UTF-8
 
 
-'simple item'
+'use json item'
 
 __author__ = 'svtter'
 
-import cPickle as p
+import json
 
 
-# Finish
 class item:
-    '''项目'''
     def __init__(self, path):
-        # error cus no file
         self.path = path
-        self.itemlist = []
+        self.itemlist = {}
         if file(self.path) is False:
             f = file(self.path, 'w')
             f.close()
         f = file(self.path)
-        self.itemlist = p.load(f)
+        self.itemlist = json.load(f)
         f.close()
 
     def add(self, new_item):
-        self.itemlist.append(new_item)
+        pass
 
     def show(self):
-        print self.itemlist
+        pass
 
     def remove(self, rm_item):
-        self.itemlist.remove(rm_item)
+        pass
 
     def __del__(self):
         f = file(self.path, 'w')
-        p.dump(self.itemlist, f)
+        json.dump(self.itemlist, f)
         f.close()
+
