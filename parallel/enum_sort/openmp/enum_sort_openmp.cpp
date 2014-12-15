@@ -59,7 +59,7 @@ int t;
 // 最大数组大小
 // 最大的大小
 // 处理器个数
-#define MAXN 20000
+#define MAXN 2000
 #define PMAX 10000
 #define NUM_THREADS 4
 
@@ -116,7 +116,7 @@ double parallel_enum_sort(int b[], int bt[])
 void debug(int a[], int len)
 {
     for(int i = 1; i <= len; i++) {
-        DEB(a[i], '\0');
+        cout << a[i] << " ";
     }
     cout << endl;
 }
@@ -133,16 +133,18 @@ int main()
 	omp_set_num_threads(NUM_THREADS);
     double cost1, cost2;
 
+    cout << "origin array: " <<endl;
+    debug(a, 100);
 
     //serial
     cost1 = serial_enum_sort(a, at);
     printf("serial cost is:\n%lf\n", cost1);
-    // debug(at, 100);
+    debug(at, 100);
     
     //parallel
     cost2 = parallel_enum_sort(b, bt);
     printf("parallel cost is:\n%lf\n", cost2);
-    // debug(bt, 100);
+    debug(bt, 100);
 
     cout << "increse speed is: " << cost1 / cost2;
     cout << endl;

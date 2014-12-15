@@ -30,7 +30,7 @@ using namespace std;
 
 #define MAXN 20000
 #define PMAX 10000
-#define NUM_THREADS 2
+#define NUM_THREADS 4
 
 // 针对ab建立两个随机数数组
 void build(int a[], int b[])
@@ -79,14 +79,17 @@ void debug(int a[], int len)
 
 int a[MAXN+10], b[MAXN+10]; 
 int at[MAXN+10], bt[MAXN+10];
-int n = 1;
+
 void* parallel_enum_sort(void *arg)
 {
     int k;
-    for(int i = n ; i <= MAXN; i+=NUM_THREADS)
+    int i, j;
+    int n = *(int *)arg;
+    // cout << "N: " << n << endl;
+    for(i = n ; i <= MAXN; i += NUM_THREADS)
     {
         k = 1;
-        for(int j = 1; j <= MAXN; j++)
+        for(j = 1; j <= MAXN; j++)
         {
             if(b[i] > b[j] || (b[i] == b[j] && i > j))
                 k++;
@@ -108,7 +111,6 @@ int main()
     //serial
     cost1 = serial_enum_sort(a, at);
     printf("serial cost is: %lf\n", cost1);
-    // debug(at, 100);
     // puts("have child.");
 
     //parallel
@@ -116,10 +118,16 @@ int main()
     gettimeofday(&t1, NULL);
 
     pthread_t pt[NUM_THREADS+1];
+
+    // n数组转换
+    int num[NUM_THREADS+1];
+    for(int i = 1; i <= NUM_THREADS; i++)
+        num[i] = i;
+
     for(int i = 1; i <= NUM_THREADS; i++)
     {
-        pthread_create(&pt[i], NULL, parallel_enum_sort, NULL);
-        n++;
+        void *p = &num[i];
+        pthread_create(&pt[i], NULL, parallel_enum_sort, p);
     }
 
     for(int i = 1; i <= NUM_THREADS; i++)
@@ -138,9 +146,15 @@ int main()
     gettimeofday(&t2, NULL);
     cost2 = timeuse(t1, t2);
     cout << "parallel time is: " << cost2 << endl;
-    // debug(bt, 100);
 
     cout << "加速比为：" << cost1 /cost2 << endl;
+    
+    cout << "orginal array is: " << endl;
+    debug(a, 100);
+    cout << "serial sort is: " << endl;
+    debug(at, 100);
+    cout << "parallel sort is: " << endl;
+    debug(bt, 100);
 
     return 0;
 }

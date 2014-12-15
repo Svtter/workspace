@@ -18,7 +18,7 @@ public class enum_sort implements Runnable{
     public int a[];
     public int b[];
     public static int NUM_THREADS = 4;
-    public static int MAXN = 10000;
+    public static int MAXN = 100;
     public static int MAXV = 10000;
     public enum_sort(int n, int a[], int b[]) {
         this.a = a;
@@ -47,7 +47,7 @@ public class enum_sort implements Runnable{
 
     public static void debug(int a[] ,int len) {
         for(int i = 1; i <= len; i++) {
-            System.out.println(a[i] + " ");
+            System.out.print(a[i] + " ");
         }
         System.out.println("");
     }
@@ -75,14 +75,14 @@ public class enum_sort implements Runnable{
         b1 = new int[MAXN+1];
 
         enum_sort.build(a, a1);
-        // enum_sort.debug(a, 100);
+        enum_sort.debug(a, 100);
 
         long start = System.currentTimeMillis(); 
         enum_sort.serial(a1, b1);
-        // enum_sort.debug(b1, 100);
         long end= System.currentTimeMillis(); 
         long c1 = end - start;
         System.out.println("Serial time is: "+c1);
+        enum_sort.debug(b1, 100);
 
 
         start = System.currentTimeMillis(); 
@@ -106,9 +106,8 @@ public class enum_sort implements Runnable{
         end= System.currentTimeMillis(); 
         long c2 = end - start;
         System.out.println("Parallel time is: "+c2);
+        enum_sort.debug(b, 100);
 
         System.out.println("加速比："+c1/(double)c2);
     }
 }
-
-

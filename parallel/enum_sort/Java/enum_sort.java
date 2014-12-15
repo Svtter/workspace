@@ -47,7 +47,7 @@ public class enum_sort extends Thread {
 
     public static void debug(int a[] ,int len) {
         for(int i = 1; i <= len; i++) {
-            System.out.println(a[i] + " ");
+            System.out.print(a[i] + " ");
         }
         System.out.println("");
     }
@@ -75,14 +75,15 @@ public class enum_sort extends Thread {
         b1 = new int[MAXN+1];
 
         enum_sort.build(a, a1);
-        // enum_sort.debug(a, 100);
+        enum_sort.debug(a, 100);
 
         long start = System.currentTimeMillis(); 
         enum_sort.serial(a1, b1);
-        // enum_sort.debug(b1, 100);
         long end= System.currentTimeMillis(); 
         long c1 = end - start;
         System.out.println("Serial time is: "+c1);
+        System.out.println("Serial array is: \n");
+        enum_sort.debug(b1, 100);
 
 
         start = System.currentTimeMillis(); 
@@ -101,6 +102,8 @@ public class enum_sort extends Thread {
         end= System.currentTimeMillis(); 
         long c2 = end - start;
         System.out.println("Parallel time is: "+c2);
+        System.out.println("parallel array is: \n");
+        enum_sort.debug(b, 100);
 
         System.out.println("加速比："+c1/(double)c2);
     }
